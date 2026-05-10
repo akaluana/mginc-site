@@ -3,19 +3,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 body {
-  background: #f7f7f7;
-  color: #222;
-  line-height: 1.6;
+  background: #F2F4F7;
+  color: #1A1D23;
+  line-height: 1.7;
 }
 
 /* ===== Navigation ===== */
 nav {
-  background: #111;
-  padding: 15px 30px;
+  background: #0A0F1F;
+  padding: 18px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,21 +23,21 @@ nav {
 
 nav .logo {
   color: #fff;
-  font-size: 1.4rem;
-  font-weight: bold;
-  letter-spacing: 1px;
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 30px;
 }
 
 nav ul li a {
-  color: #ddd;
+  color: #E6E9EF;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.05rem;
+  transition: 0.2s;
 }
 
 nav ul li a:hover {
@@ -46,62 +46,27 @@ nav ul li a:hover {
 
 /* ===== Hero Section ===== */
 .hero {
-  padding: 120px 30px;
+  padding: 140px 30px;
   text-align: center;
-  background: #222;
-  color: #fff;
+  background: linear-gradient(135deg, #0A0F1F, #1C1F26);
+  color: #E6E9EF;
 }
 
 .hero h1 {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  margin-bottom: 25px;
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: auto;
+  opacity: 0.9;
+  margin-bottom: 30px;
 }
 
 .btn {
   display: inline-block;
-  padding: 12px 25px;
-  background: #0078ff;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-.btn:hover {
-  background: #005fcc;
-}
-
-/* ===== Content Sections ===== */
-.section {
-  padding: 60px 30px;
-  max-width: 900px;
-  margin: auto;
-}
-
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.section p,
-.section li {
-  font-size: 1.1rem;
-  margin-bottom: 12px;
-}
-
-ul.service-list {
-  margin-left: 20px;
-}
-
-/* ===== Footer ===== */
-footer {
-  background: #111;
-  color: #ccc;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
+  padding: 14px 32px;
+  background
