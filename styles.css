@@ -27,6 +27,22 @@ nav .logo {
   font-weight: 600;
 }
 
+.logo a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+}
+
+.logo {
+  font-family: 'Inter', sans-serif;
+}
+
+.logo a:hover {
+  opacity: 0.8;
+}
+
 nav ul {
   list-style: none;
   display: flex;

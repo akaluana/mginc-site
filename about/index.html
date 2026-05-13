@@ -7,17 +7,15 @@
 </head>
 <body>
 
-  <nav>
-    <div class="logo">
-      <a href="/">MG Inc</a>
-    </div>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/services">Services</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul>
-  </nav>
+  <div id="nav-placeholder"></div>
+
+  <script>
+    fetch("/partials/nav.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("nav-placeholder").innerHTML = data;
+      });
+  </script>
   
 <section class="hero">
   <h1>About Me</h1>
