@@ -95,21 +95,25 @@
   ">
     Message sent successfully — I’ll get back to you shortly.
   </div>
-  <!-- Web3Forms Contact Form -->
-  <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+  
+  <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="contact-form">
     <input type="hidden" name="access_key" value="f027fa6f-e136-473f-8d67-c929f336b76c">
-
+  
+    <!-- Prevent Web3Forms redirect -->
+    <input type="hidden" name="redirect" value="false">
+  
     <label for="name">Name</label>
     <input type="text" id="name" name="name" required>
-
+  
     <label for="email">Email</label>
     <input type="email" id="email" name="email" required>
-
+  
     <label for="message">Message</label>
     <textarea id="message" name="message" required></textarea>
-
+  
     <button type="submit">Send Message</button>
   </form>
+  
   <script>
     const form = document.getElementById('contactForm');
     const successBox = document.getElementById('form-success');
@@ -125,13 +129,9 @@
       });
   
       if (response.ok) {
-        // Show success message
         successBox.style.display = 'block';
-  
-        // Clear form fields
         form.reset();
   
-        // Optional: hide message after 5 seconds
         setTimeout(() => {
           successBox.style.display = 'none';
         }, 5000);
@@ -140,6 +140,7 @@
       }
     });
   </script>
+  
 </section>
 
 <footer>
