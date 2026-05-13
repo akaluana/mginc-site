@@ -4,7 +4,53 @@
   <meta charset="UTF-8">
   <title>Contact — MG Inc</title>
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .contact-form {
+      max-width: 500px;
+      margin: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-form label {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-form button {
+      padding: 0.75rem 1.25rem;
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s ease;
+    }
+
+    .contact-form button:hover {
+      background: #555;
+    }
+  </style>
 </head>
+
 <body>
 
 <nav>
@@ -33,23 +79,27 @@
   <p><strong>Location:</strong> Ontario, Canada</p>
 
   <p>
-    When reaching out, feel free to include a brief description of your project,
-    timeline, and any relevant files or drawings. I typically respond within one business day.
+    You can also reach out directly using the form below.
   </p>
 
-  <a class="btn" href="mailto:akaluana@mginc.io">Email Me</a>
+  <!-- Web3Forms Contact Form -->
+  <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+    <input type="hidden" name="access_key" value="f027fa6f-e136-473f-8d67-c929f336b76c">
+
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
 </section>
-  
-<section class="hero">
-  <h3>Or submit a form</h3>
-  <form action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="f027fa6f-e136-473f-8d67-c929f336b76c">
-  <input type="text" name="name" required>
-  <input type="email" name="email" required>
-  <textarea name="message" required></textarea>
-  <button type="submit">Submit</button>
-</form>
-</section>
+
 <footer>
   © 2026 MG Inc — Ontario, Canada
 </footer>
