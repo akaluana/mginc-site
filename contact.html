@@ -82,6 +82,19 @@
     You can also reach out directly using the form below.
   </p>
 
+  <!-- Success message (hidden by default) -->
+  <div id="form-success" style="
+    display:none;
+    padding: 1rem;
+    margin-top: 1rem;
+    background: #e6ffed;
+    border: 1px solid #b2f5c0;
+    color: #1a7f37;
+    border-radius: 4px;
+    font-weight: 600;
+  ">
+    Message sent successfully — I’ll get back to you shortly.
+  </div>
   <!-- Web3Forms Contact Form -->
   <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
     <input type="hidden" name="access_key" value="f027fa6f-e136-473f-8d67-c929f336b76c">
@@ -97,7 +110,36 @@
 
     <button type="submit">Send Message</button>
   </form>
-
+  <script>
+    const form = document.getElementById('contactForm');
+    const successBox = document.getElementById('form-success');
+  
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // stop page reload
+  
+      const formData = new FormData(form);
+  
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData
+      });
+  
+      if (response.ok) {
+        // Show success message
+        successBox.style.display = 'block';
+  
+        // Clear form fields
+        form.reset();
+  
+        // Optional: hide message after 5 seconds
+        setTimeout(() => {
+          successBox.style.display = 'none';
+        }, 5000);
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    });
+  </script>
 </section>
 
 <footer>
