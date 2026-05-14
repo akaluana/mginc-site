@@ -49,17 +49,17 @@ async function loadPortfolio() {
       }
     });
 
-    // Use first image or fallback
-    const firstImage = data.images?.[0] || "/images/default.jpg";
-
-    // Render Markdown body
-    const htmlBody = marked.parse(body);
-
-    // Build card
-    const imageHtml = data.images
+    // Build thumbnail strip
+    const imageHtml = (data.images || [])
       .map(img => `<img src="${img}" class="thumb">`)
       .join("");
 
+    // Render Markdown body
+    const htmlBody = marked.parse(body);
+    const card = document.createElement("div");
+    card.className = "portfolio-card";
+
+    // Build card HTML
     card.innerHTML = `
       <div class="thumbs">${imageHtml}</div>
       <div class="content">
@@ -69,9 +69,15 @@ async function loadPortfolio() {
       </div>
     `;
 
-
     grid.appendChild(card);
   }
 }
+
+// Click → open full-size image
+document.addEventListener("click", e => {
+  if (e.target.classList.contains("thumb")) {
+    window.open(e.target.src, "_blank");
+  }
+});
 
 loadPortfolio();
