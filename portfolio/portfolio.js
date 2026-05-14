@@ -56,17 +56,19 @@ async function loadPortfolio() {
     const htmlBody = marked.parse(body);
 
     // Build card
-    const card = document.createElement("div");
-    card.className = "portfolio-card";
+    const imageHtml = data.images
+      .map(img => `<img src="${img}" class="thumb">`)
+      .join("");
 
     card.innerHTML = `
-      <img src="${firstImage}" alt="${data.title}">
+      <div class="thumbs">${imageHtml}</div>
       <div class="content">
         <h3>${data.title}</h3>
         <p>${data.summary}</p>
         <div class="details">${htmlBody}</div>
       </div>
     `;
+
 
     grid.appendChild(card);
   }
