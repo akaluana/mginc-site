@@ -3,7 +3,7 @@ title: "Tier 4 Diesel-Hydraulic Tracked Towing Unit"
 summary: "A custom Tier 4 diesel‑hydraulic tracked towing system engineered for high-capacity material handling and controlled low‑speed towing."
 date: "2025-11-04"
 images:
-  - "/images/projcet1-1.png"
+  - "/images/project1-1.png"
   - "/images/project1-2.png"
   - "/images/project1-3.png"
 ---

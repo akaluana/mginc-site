@@ -52,6 +52,9 @@ async function loadPortfolio() {
     // Use first image or fallback
     const firstImage = data.images?.[0] || "/images/default.jpg";
 
+    // Render Markdown body
+    const htmlBody = marked.parse(body);
+
     // Build card
     const card = document.createElement("div");
     card.className = "portfolio-card";
@@ -61,6 +64,7 @@ async function loadPortfolio() {
       <div class="content">
         <h3>${data.title}</h3>
         <p>${data.summary}</p>
+        <div class="details">${htmlBody}</div>
       </div>
     `;
 
