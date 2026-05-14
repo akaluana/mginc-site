@@ -55,9 +55,13 @@ async function loadPortfolio() {
     // Build card HTML
     card.innerHTML = `
       <div class="card-header">
-        <h3>${data.title}</h3>
-        <p>${data.summary}</p>
+        <div class="header-text">
+          <h3>${data.title}</h3>
+          <p>${data.summary}</p>
+        </div>
+        <div class="chevron"></div>
       </div>
+
 
       <div class="card-expanded">
         <div class="image-viewer">

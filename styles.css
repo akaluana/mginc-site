@@ -303,3 +303,92 @@ ul, ol {
 ul li, ol li {
   margin-bottom: 0.4rem;
 }
+
+.portfolio-card .content h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #0a0f1f;
+}
+
+.portfolio-card .details h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1a1d23;
+}
+
+.portfolio-card .details h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 1.2rem;
+  margin-bottom: 0.4rem;
+  color: #1a1d23;
+}
+
+.portfolio-card .details p {
+  margin: 0.6rem 0 1rem;
+  line-height: 1.6;
+}
+
+.portfolio-card .details ul,
+.portfolio-card .details ol {
+  margin: 0.6rem 0 1rem;
+  padding-left: 2rem; /* deeper indent */
+}
+
+.portfolio-card .details li {
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+
+.portfolio-card .card-expanded {
+  margin-top: 1rem;
+}
+
+.portfolio-card .image-viewer {
+  margin-bottom: 1.2rem;
+}
+
+.portfolio-card .thumbs {
+  margin-bottom: 1.2rem;
+}
+
+/* Chevron indicator */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chevron {
+  width: 14px;
+  height: 14px;
+  border-right: 2px solid #444;
+  border-bottom: 2px solid #444;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+  margin-left: 1rem;
+}
+
+.portfolio-card:not(.compact) .chevron {
+  transform: rotate(-135deg);
+}
+
+/* Collapsed preview */
+.portfolio-card.compact .details {
+  max-height: 4.5rem; /* ~3 lines */
+  overflow: hidden;
+  position: relative;
+}
+
+.portfolio-card.compact .details::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1.5rem;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent, #fff);
+}
