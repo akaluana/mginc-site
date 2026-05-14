@@ -57,6 +57,16 @@ nav ul li a:hover {
   color: #fff;
 }
 
+ul, ol {
+  padding-left: 2rem;
+  margin-left: 0;
+}
+
+ul li, ol li {
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+
 /* HERO SECTION */
 .hero {
   padding: 120px 30px;
