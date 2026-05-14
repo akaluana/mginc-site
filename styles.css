@@ -215,3 +215,91 @@ footer {
   cursor: pointer;
   background: white;
 }
+
+/* Compact vs expanded */
+.portfolio-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.portfolio-card.compact .card-expanded {
+  display: none;
+}
+
+/* Header */
+.card-header h3 {
+  margin: 0;
+}
+
+.card-header p {
+  margin: 0.5rem 0 0;
+  color: #555;
+}
+
+/* Image viewer */
+.image-viewer {
+  position: relative;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.image-viewer .main-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+.image-viewer .nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #00000055;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.image-viewer .nav.left {
+  left: 10px;
+}
+
+.image-viewer .nav.right {
+  right: 10px;
+}
+
+/* Thumbnails */
+.thumbs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.thumbs img.thumb {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  background: white;
+}
+
+ul, ol {
+  padding-left: 2rem;   /* Increase indentation */
+  margin-left: 0;       /* Prevent double-indenting */
+}
+
+ul li, ol li {
+  margin-bottom: 0.4rem;
+}
