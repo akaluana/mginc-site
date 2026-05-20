@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio — MG Inc</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<div id="nav-placeholder"></div>
+<script>
+  fetch("/partials/nav.html")
+    .then(r => r.text())
+    .then(html => document.getElementById("nav-placeholder").innerHTML = html);
+</script>
+
+<section class="hero">
+  <h1>Portfolio</h1>
+  <p>Selected case studies and engineering work.</p>
+</section>
+
+<section class="section">
+  <div id="portfolio-grid" class="portfolio-grid"></div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="portfolio.js"></script>
+
+</body>
+</html>
