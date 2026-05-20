@@ -60,14 +60,14 @@ nav ul li a:hover {
   color: #fff;
 }
 
-/* ===== Alignment Wrapper (kept from your old CSS) ===== */
+/* Alignment Wrapper */
 .align {
   max-width: 1100px;
   margin: auto;
   padding: 0 30px;
 }
 
-/* ===== Hero Section ===== */
+/* Hero Section */
 .hero {
   padding: 120px 30px;
   text-align: center;
@@ -105,7 +105,7 @@ nav ul li a:hover {
   background: #005fcc;
 }
 
-/* ===== Sections ===== */
+/*  Sections  */
 .section {
   padding: 70px 30px;
   max-width: 1100px;
@@ -118,7 +118,7 @@ nav ul li a:hover {
   font-weight: 700;
 }
 
-/* ===== Cards Layout (compatible with your old HTML) ===== */
+/* Cards Layout */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -150,7 +150,7 @@ nav ul li a:hover {
   opacity: 0.85;
 }
 
-/* ===== Footer ===== */
+/* Footer */
 footer {
   background: #0a0f1f;
   color: #e6e9ef;
@@ -159,3 +159,4 @@ footer {
   margin-top: 60px;
   font-size: 0.95rem;
 }
+
