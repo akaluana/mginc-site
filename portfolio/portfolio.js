@@ -2,6 +2,7 @@ async function loadPortfolio() {
   const grid = document.getElementById("portfolio-grid");
   const repo = "akaluana/mginc-site";
 
+  // Fetch list of markdown files
   const response = await fetch(`https://api.github.com/repos/${repo}/contents/portfolio`);
   const files = await response.json();
   const mdFiles = files.filter(f => f.name.endsWith(".md"));
@@ -43,73 +44,92 @@ async function loadPortfolio() {
 
     const htmlBody = marked.parse(body);
 
-    // Create card
-    const card = document.createElement("div");
-    card.className = "portfolio-card compact";
-
-    // Build thumbnail strip
+    // Build thumbnail strip HTML
     const thumbs = data.images
       .map((img, i) => `<img src="${img}" class="thumb" data-index="${i}">`)
       .join("");
 
-    // Build card HTML
+    // Create card element
+    const card = document.createElement("div");
+    card.className = "portfolio-card";
+
     card.innerHTML = `
       <div class="card-header">
-        <div class="header-text">
-          <h3>${data.title}</h3>
-          <p>${data.summary}</p>
-        </div>
-        <div class="chevron"></div>
-      </div>
-
-
-      <div class="card-expanded">
-        <div class="image-viewer">
-          <button class="nav left">‹</button>
-          <img class="main-image" src="${data.images[0]}">
-          <button class="nav right">›</button>
-        </div>
-
-        <div class="thumbs">${thumbs}</div>
-
-        <div class="details">${htmlBody}</div>
+        <h3>${data.title}</h3>
+        <p>${data.summary}</p>
       </div>
     `;
 
-    // Expand/collapse behavior
-    card.querySelector(".card-header").addEventListener("click", () => {
-      card.classList.toggle("compact");
-    });
-
-    // Image navigation
-    let currentIndex = 0;
-
-    const mainImage = card.querySelector(".main-image");
-
-    function updateImage() {
-      mainImage.src = data.images[currentIndex];
-    }
-
-    card.querySelector(".nav.left").addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + data.images.length) % data.images.length;
-      updateImage();
-    });
-
-    card.querySelector(".nav.right").addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % data.images.length;
-      updateImage();
-    });
-
-    // Thumbnail click
-    card.querySelectorAll(".thumb").forEach(thumb => {
-      thumb.addEventListener("click", () => {
-        currentIndex = parseInt(thumb.dataset.index);
-        updateImage();
-      });
-    });
+    // Add click handler → open modal
+    card.addEventListener("click", () => openModal(data, thumbs, htmlBody));
 
     grid.appendChild(card);
   }
+}
+
+function openModal(data, thumbs, htmlBody) {
+  const modal = document.getElementById("portfolio-modal");
+  const modalBody = modal.querySelector(".modal-body");
+
+  modalBody.innerHTML = `
+    <h2>${data.title}</h2>
+    <p>${data.summary}</p>
+
+    <div class="image-viewer">
+      <button class="nav left">‹</button>
+      <img class="main-image" src="${data.images[0]}">
+      <button class="nav right">›</button>
+    </div>
+
+    <div class="thumbs">${thumbs}</div>
+
+    <div class="details">${htmlBody}</div>
+  `;
+
+  modal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+
+  // Image navigation logic
+  let currentIndex = 0;
+  const mainImage = modalBody.querySelector(".main-image");
+
+  function updateImage() {
+    mainImage.src = data.images[currentIndex];
+  }
+
+  modalBody.querySelector(".nav.left").addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + data.images.length) % data.images.length;
+    updateImage();
+  });
+
+  modalBody.querySelector(".nav.right").addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % data.images.length;
+    updateImage();
+  });
+
+  modalBody.querySelectorAll(".thumb").forEach(thumb => {
+    thumb.addEventListener("click", () => {
+      currentIndex = parseInt(thumb.dataset.index);
+      updateImage();
+    });
+  });
+}
+
+// Close modal (X button)
+document.querySelector(".modal-close").addEventListener("click", () => {
+  closeModal();
+});
+
+// Close modal when clicking outside content
+document.getElementById("portfolio-modal").addEventListener("click", (e) => {
+  if (e.target.id === "portfolio-modal") {
+    closeModal();
+  }
+});
+
+function closeModal() {
+  document.getElementById("portfolio-modal").classList.add("hidden");
+  document.body.style.overflow = "";
 }
 
 loadPortfolio();
