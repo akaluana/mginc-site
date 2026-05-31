@@ -1,10 +1,10 @@
 ---
-title: "New Project"
+title: "40‑Ton Axle Spindle & Hub Assembly"
+summary: "Heavy‑duty axle system for low‑speed, high‑torque off‑road equipment and ship‑loader applications."
 images:
-    - "/images/project-2-1.jpg"
-    - "/images/project-2-2.jpg"
-    - "/images/project-2-3.jpg"
-summary: "Short description."
+    - "/images/project2-1.png"
+    - "/images/project2-2.png"
+    - "/images/project2-3.png"
 date: "2026-05-13"
 ---
 
@@ -12,8 +12,7 @@ date: "2026-05-13"
 
 This project involved the complete design of a **40‑ton capacity axle spindle and wheel hub assembly** for use on heavy off‑road, low‑speed, high‑torque equipment — including ship loaders, tracked machines, and industrial transport systems.
 
-The assembly was designed, detailed, and released for production under **SN 2862**, with full machining and welding specifications.  
-*(Ref: “AXLE SPINDLE 40kips CAPACITY – AFTER MACHINING”, “WHEEL HUB – AFTER MACHINING”)*
+The assembly was designed, detailed, and released for production, with full machining and welding specifications. 
 
 ---
 
@@ -42,7 +41,7 @@ The assembly was designed, detailed, and released for production under **SN 2862
 ### **Weldment Design**
 - Multi‑plate welded construction  
 - ASTM A519 1026 mechanical tubing  
-- CNC‑cut plasma plates  
+- CNC plasma cut plates  
 - Full machining after welding for concentricity and bearing fits  
 
 ---
@@ -63,7 +62,7 @@ The assembly was designed, detailed, and released for production under **SN 2862
 
 ## Fabrication & Commissioning
 
-- Machined components produced to ±0.001–0.005" tolerances  
+- Machined components produced to ±0.0005–0.005" tolerances  
 - Weldments assembled and stress‑relieved prior to machining  
 - Final assemblies installed on ship‑loader bogie system  
 - Verified fit, alignment, and torque specs during commissioning  
