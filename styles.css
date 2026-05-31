@@ -163,8 +163,8 @@ ul li, ol li {
 /* PORTFOLIO GRID */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.8rem;
   margin-top: 2rem;
 }
 
@@ -172,14 +172,43 @@ ul li, ol li {
 .portfolio-card {
   background: #fff;
   border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 1rem;
-  transition: all 0.3s ease;
+  border-radius: 10px;
+  padding: 22px;
   cursor: pointer;
+  transition: 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
 .portfolio-card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Title */
+.portfolio-card h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+  color: #0a0f1f;
+
+  /* Limit to 2 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.portfolio-card p {
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.55;
+
+  /* Limit to 3 lines for consistency */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* Compact mode hides expanded content */
