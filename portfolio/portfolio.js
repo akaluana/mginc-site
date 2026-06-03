@@ -1,3 +1,17 @@
+// TAB SWITCHING
+document.querySelectorAll(".portfolio-tabs .tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".portfolio-tabs .tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    const target = tab.dataset.tab;
+
+    document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+    document.getElementById(target + "-tab").classList.add("active");
+  });
+});
+
+
 async function loadPortfolio() {
   const grid = document.getElementById("portfolio-grid");
   const repo = "akaluana/mginc-site";
@@ -132,4 +146,22 @@ function closeModal() {
   document.body.style.overflow = "";
 }
 
+async function loadGallery() {
+  const gallery = document.getElementById("gallery-grid");
+  const repo = "akaluana/mginc-site";
+
+  const response = await fetch(`https://api.github.com/repos/${repo}/contents/images`);
+  const files = await response.json();
+
+  const projectImages = files.filter(f => /^project.*\.png$/i.test(f.name));
+
+  projectImages.forEach(img => {
+    const el = document.createElement("img");
+    el.src = img.download_url;
+    gallery.appendChild(el);
+  });
+}
+
+loadGallery();
 loadPortfolio();
+

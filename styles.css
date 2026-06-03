@@ -325,3 +325,49 @@ footer {
   margin-top: 60px;
   font-size: 0.95rem;
 }
+
+/* TABS */
+.portfolio-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.portfolio-tabs .tab {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+.portfolio-tabs .tab.active {
+  background: #0a0f1f;
+  color: white;
+  border-color: #0a0f1f;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* GALLERY GRID */
+#gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+#gallery-grid img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  object-fit: cover;
+  background: #fafafa;
+}
