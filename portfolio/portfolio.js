@@ -155,12 +155,68 @@ async function loadGallery() {
 
   const projectImages = files.filter(f => /^project.*\.png$/i.test(f.name));
 
-  projectImages.forEach(img => {
+  galleryImages = projectImages.map(img => img.download_url);
+
+  projectImages.forEach((img, index) => {
     const el = document.createElement("img");
     el.src = img.download_url;
+    el.addEventListener("click", () => openGalleryLightbox(index));
     gallery.appendChild(el);
   });
 }
+
+
+// GALLERY LIGHTBOX LOGIC
+let galleryImages = [];
+let galleryIndex = 0;
+
+function openGalleryLightbox(index) {
+  galleryIndex = index;
+  const modal = document.getElementById("gallery-lightbox");
+  const img = document.getElementById("gallery-lightbox-image");
+
+  img.src = galleryImages[galleryIndex];
+  modal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+}
+
+function closeGalleryLightbox() {
+  document.getElementById("gallery-lightbox").classList.add("hidden");
+  document.body.style.overflow = "";
+}
+
+function galleryNext() {
+  galleryIndex = (galleryIndex + 1) % galleryImages.length;
+  document.getElementById("gallery-lightbox-image").src = galleryImages[galleryIndex];
+}
+
+function galleryPrev() {
+  galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+  document.getElementById("gallery-lightbox-image").src = galleryImages[galleryIndex];
+}
+
+// Close on click outside
+document.getElementById("gallery-lightbox").addEventListener("click", (e) => {
+  if (e.target.id === "gallery-lightbox") closeGalleryLightbox();
+});
+
+// Close button
+document.querySelector(".gallery-lightbox-close").addEventListener("click", closeGalleryLightbox);
+
+// Nav buttons
+document.querySelector(".gallery-nav.left").addEventListener("click", galleryPrev);
+document.querySelector(".gallery-nav.right").addEventListener("click", galleryNext);
+
+// Keyboard navigation
+document.addEventListener("keydown", (e) => {
+  const modal = document.getElementById("gallery-lightbox");
+  if (modal.classList.contains("hidden")) return;
+
+  if (e.key === "ArrowRight") galleryNext();
+  if (e.key === "ArrowLeft") galleryPrev();
+  if (e.key === "Escape") closeGalleryLightbox();
+});
+
 
 loadGallery();
 loadPortfolio();

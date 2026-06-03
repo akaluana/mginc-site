@@ -20,22 +20,22 @@
   <p>Selected case studies and engineering work.</p>
 </section>
 
-<div class="portfolio-tabs">
-  <button class="tab active" data-tab="gallery">Gallery</button>
-  <button class="tab" data-tab="case-studies">Case Studies</button>
-</div>
-
-<!-- GALLERY TAB -->
-<div id="gallery-tab" class="tab-content">
-  <div id="gallery-grid"></div>
-</div>
-
-<!-- CASE STUDIES TAB -->
-<div id="case-studies-tab" class="tab-content active">
-  <div id="portfolio-grid"></div>
-</div>
-
 <section class="section">
+  <div class="portfolio-tabs">
+    <button class="tab active" data-tab="gallery">Gallery</button>
+    <button class="tab" data-tab="case-studies">Case Studies</button>
+  </div>
+
+  <!-- GALLERY TAB -->
+  <div id="gallery-tab" class="tab-content">
+    <div id="gallery-grid"></div>
+  </div>
+
+  <!-- CASE STUDIES TAB -->
+  <div id="case-studies-tab" class="tab-content active">
+    <div id="portfolio-grid"></div>
+  </div>
+
   <div id="portfolio-grid" class="portfolio-grid"></div>
 </section>
 
@@ -46,6 +46,15 @@
   </div>
 </div>
 
+<!-- GALLERY LIGHTBOX -->
+<div id="gallery-lightbox" class="modal hidden">
+  <div class="modal-content gallery-lightbox-content">
+    <button class="modal-close gallery-lightbox-close">×</button>
+    <button class="gallery-nav left">‹</button>
+    <img id="gallery-lightbox-image" src="">
+    <button class="gallery-nav right">›</button>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="/portfolio/portfolio.js"></script>
