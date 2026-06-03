@@ -272,7 +272,8 @@ ul li, ol li {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.55);
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(2px);
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -388,18 +389,20 @@ footer {
   justify-content: center;
   align-items: center;
 
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
-  padding: 0 !important;
+  width: 90vw;          /* reduced from full width */
+  height: 85vh;         /* reduced from full height */
+  max-width: 1200px;    /* prevents giant scaling on big monitors */
+  max-height: 90vh;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 0;
 }
 
 #gallery-lightbox-image {
   width: auto;
   height: auto;
-  max-width: 95vw;
-  max-height: 90vh;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
 }
 
@@ -408,22 +411,24 @@ footer {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #00000077;
+  background: rgba(0,0,0,0.45);   /* softer translucent background */
   color: white;
   border: none;
-  font-size: 3rem;
-  padding: 0.3rem 0.8rem;
+  font-size: 2.4rem;              /* reduced from 3rem */
+  padding: 0.2rem 0.6rem;         /* slightly smaller padding */
   cursor: pointer;
   border-radius: 6px;
   z-index: 10;
+  transition: background 0.2s ease;
 }
 
 .gallery-nav.left { left: 10px; }
 .gallery-nav.right { right: 10px; }
 
 .gallery-nav:hover {
-  background: #000000aa;
+  background: rgba(0,0,0,0.65);   /* subtle hover darkening */
 }
+
 
 /* Close button override */
 .gallery-lightbox-close {
