@@ -150,7 +150,7 @@ async function loadGallery() {
   const gallery = document.getElementById("gallery-grid");
   const repo = "akaluana/mginc-site";
 
-  const response = await fetch(`https://api.github.com/repos/${repo}/contents/images`);
+  const response = await fetch(`https://api.github.com/repos/${repo}/contents/images/portfolio`);
   const files = await response.json();
 
   const imageExtensions = /\.(jpg|jpeg|png|gif|webp|bmp|svg)$/i;
