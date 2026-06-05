@@ -2,9 +2,9 @@
 title: "40‑Ton Axle Spindle & Hub Assembly"
 summary: "Heavy‑duty axle system for low‑speed, high‑torque off‑road equipment and ship‑loader applications."
 images:
-    - "/images/project2-1.png"
-    - "/images/project2-2.png"
-    - "/images/project2-3.png"
+    - "/images/portfolio/project2-1.png"
+    - "/images/portfolio/project2-2.png"
+    - "/images/portfolio/project2-3.png"
 date: "2026-05-13"
 ---
 

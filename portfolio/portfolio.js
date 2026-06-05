@@ -153,7 +153,8 @@ async function loadGallery() {
   const response = await fetch(`https://api.github.com/repos/${repo}/contents/images`);
   const files = await response.json();
 
-  const projectImages = files.filter(f => /^project.*\.png$/i.test(f.name));
+  const imageExtensions = /\.(jpg|jpeg|png|gif|webp|bmp|svg)$/i;
+  const projectImages = files.filter(f => imageExtensions.test(f.name));
 
   galleryImages = projectImages.map(img => img.download_url);
 
